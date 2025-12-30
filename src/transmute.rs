@@ -1,13 +1,6 @@
 use std::mem;
 
 pub fn yeet<A, B>(a: A) -> B {
-    assert_eq!(
-        mem::size_of::<A>(),
-        mem::size_of::<B>(),
-        "Size mismatch: {} bytes vs {} bytes",
-        mem::size_of::<A>(),
-        mem::size_of::<B>()
-    );
     unsafe { mem::transmute_copy(&a) }
 }
 
